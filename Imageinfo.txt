@@ -1,0 +1,39 @@
+Formating infomation 
+Naming scheme 
+SHAPE (Folder name):
+|
+|---LETTERCOLOR_LETTER_SHAPECOLOR_COLOR ()
+    ex:RED_ALPHA_GRAY_SQUARE
+
+Colors needed:
+WHITE = 1; (255,255,255)
+BLACK = 2;
+GRAY = 3;
+RED = 4;
+BLUE = 5;
+GREEN = 6;
+YELLOW = 7;
+PURPLE = 8;
+BROWN = 9;
+ORANGE = 10;
+
+Shapes needed:
+CIRCLE
+SEMICIRCLE
+QUARTER_CIRCLE
+TRIANGLE
+SQUARE
+RECTANGLE
+TRAPEZOID
+PENTAGON
+HEXAGON
+HEPTAGON
+OCTAGON
+STAR
+CROSS
+
+
+IMPORTANT side info:
+50*50 is sufficient size
+background of grass and runway
+images have to be partially distorted.
