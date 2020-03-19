@@ -23,9 +23,12 @@ filename = directory + '/' + title
 #gen.drawQuarterCircle(img,gen.Palet[2])
 #gen.drawOctagon(img,gen.Palet[3])
 #gen.drawStar(img, gen.Palet[5])
-gen.drawSquare(img,gen.Palet[6])
+#gen.drawSquare(img,gen.Palet[6])
 #gen.drawTriangle(img,gen.Palet[6])
-gen.drawLetter(img,'6',gen.Palet[4],4,(11,38),1.3)
+#gen.drawCross(img, gen.RED)
+#gen.drawStar(img, gen.BLUE)
+gen.drawHeptagon(img,gen.BLUE)
+gen.drawLetter(img,'Q',gen.Palet[5],3,(13,35),1)
 # Display Window
 cv2.imshow(title,img)
 

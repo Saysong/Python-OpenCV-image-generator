@@ -127,7 +127,8 @@ def drawStar(img, color):
     cv2.fillPoly(img,[pts], color)
 
 def drawCross(img, color):
-    pts = np.array([[4,40],[44,40],[34,8],[14,8]], np.int32)
+    pts = np.array([[20,10],[20,20],[10,20],[10,30],[20,30],[20,40],[30,40],[30,30],[40,30],[40,20],[30,20],[30,10]], np.int32)
+    pts = np.array([[14,5],[14,18],[4,18],[4,33],[14,33],[14,45],[34,45],[34,33],[44,33],[44,18],[34,18],[34,5]], np.int32)
     pts = pts.reshape((-1,1,2))
     cv2.fillPoly(img,[pts], color)
 
@@ -168,22 +169,31 @@ class generation():
             self.genTriangleImages()
         elif (num == 4):
             self.ids  = 'SQUARE'
+            self.genSquareImages()
         elif (num == 5):
             self.ids  = 'RECTANGLE'
+            #self.genRectangleImages()
         elif (num == 6):
             self.ids  = 'TRAPEZOID'
+            #self.genTrapeziodImages()
         elif (num == 7):
             self.ids  = 'PENTAGON'
+            #self.genPentagonImages()
         elif (num == 8):
             self.ids  = 'HEXAGON'
+            #self.genHexagonImages()
         elif (num == 9):
             self.ids  = 'HEPTAGON'
+            #self.genHeptagonImages()
         elif (num == 10):
             self.ids  = 'OCTAGON'
+            #self.genOctagonImages()
         elif (num == 11):
             self.ids  = 'STAR'
+            #self.genStarImages()
         elif (num == 12):
             self.ids  = 'CROSS'
+            #self.genCrossImages()
         
     def textCAssignment(self, count):
         if (count == 0):
@@ -307,7 +317,7 @@ class generation():
             for j in range (0,26):
                 img = np.zeros((50,50,3), np.uint8)
                 drawSquare(img,Palet[i])
-                drawLetter(img,str(chr(65+j)),Palet[self.c],3,(13,35),0.7)
+                drawLetter(img,str(chr(65+j)),Palet[self.c],4,(11,38),1.3)
                 Text = str(chr(65+j))
                 title = 'testing_{}_{}_{}_{}.png'.format(self.ShapeC, self.ids, Text, self.TextC)
                 filename = directory + '/' + title
@@ -315,7 +325,148 @@ class generation():
                 
         if (not(self.c == 9)):
                 self.c += 1
-                self.genTriangleImages()
+                self.genSquareImages()
             
+    def genRectangleImages(self):
+        self.textCAssignment(self.c)
+        for i in range (0,10):
+            self.ShapeCAssign(i)
+            for j in range (0,26):
+                img = np.zeros((50,50,3), np.uint8)
+                drawRectangle(img,Palet[i])
+                drawLetter(img,str(chr(65+j)),Palet[self.c],4,(11,38),1.3)
+                Text = str(chr(65+j))
+                title = 'testing_{}_{}_{}_{}.png'.format(self.ShapeC, self.ids, Text, self.TextC)
+                filename = directory + '/' + title
+                cv2.imwrite(filename,img)
+                
+        if (not(self.c == 9)):
+                self.c += 1
+                self.genRectangleImages()
+
+    def genTrapeziodImages(self):
+            self.textCAssignment(self.c)
+            for i in range (0,10):
+                self.ShapeCAssign(i)
+                for j in range (0,26):
+                    img = np.zeros((50,50,3), np.uint8)
+                    drawTrapeziod(img,Palet[i])
+                    drawLetter(img,str(chr(65+j)),Palet[self.c],4,(11,38),1.3)
+                    Text = str(chr(65+j))
+                    title = 'testing_{}_{}_{}_{}.png'.format(self.ShapeC, self.ids, Text, self.TextC)
+                    filename = directory + '/' + title
+                    cv2.imwrite(filename,img)
+                
+            if (not(self.c == 9)):
+                    self.c += 1
+                    self.genTrapeziodImages()
+
+    def genPentagonImages(self):
+            self.textCAssignment(self.c)
+            for i in range (0,10):
+                self.ShapeCAssign(i)
+                for j in range (0,26):
+                    img = np.zeros((50,50,3), np.uint8)
+                    drawPentagon(img,Palet[i])
+                    drawLetter(img,str(chr(65+j)),Palet[self.c],4,(11,38),1.3)
+                    Text = str(chr(65+j))
+                    title = 'testing_{}_{}_{}_{}.png'.format(self.ShapeC, self.ids, Text, self.TextC)
+                    filename = directory + '/' + title
+                    cv2.imwrite(filename,img)
+                
+            if (not(self.c == 9)):
+                    self.c += 1
+                    self.genPentagonImages()
+
+
+    def genHexagonImages(self):
+            self.textCAssignment(self.c)
+            for i in range (0,10):
+                self.ShapeCAssign(i)
+                for j in range (0,26):
+                    img = np.zeros((50,50,3), np.uint8)
+                    drawHexagon(img,Palet[i])
+                    drawLetter(img,str(chr(65+j)),Palet[self.c],4,(11,38),1.3)
+                    Text = str(chr(65+j))
+                    title = 'testing_{}_{}_{}_{}.png'.format(self.ShapeC, self.ids, Text, self.TextC)
+                    filename = directory + '/' + title
+                    cv2.imwrite(filename,img)
+                
+            if (not(self.c == 9)):
+                    self.c += 1
+                    self.genHexagonImages()
+
+
+    def genHeptagonImages(self):
+            self.textCAssignment(self.c)
+            for i in range (0,10):
+                self.ShapeCAssign(i)
+                for j in range (0,26):
+                    img = np.zeros((50,50,3), np.uint8)
+                    drawHeptagon(img,Palet[i])
+                    drawLetter(img,str(chr(65+j)),Palet[self.c],4,(11,38),1.3)
+                    Text = str(chr(65+j))
+                    title = 'testing_{}_{}_{}_{}.png'.format(self.ShapeC, self.ids, Text, self.TextC)
+                    filename = directory + '/' + title
+                    cv2.imwrite(filename,img)
+                
+            if (not(self.c == 9)):
+                    self.c += 1
+                    self.genHeptagonImages()
+
+
+    def genOctagonImages(self):
+            self.textCAssignment(self.c)
+            for i in range (0,10):
+                self.ShapeCAssign(i)
+                for j in range (0,26):
+                    img = np.zeros((50,50,3), np.uint8)
+                    drawOctagon(img,Palet[i])
+                    drawLetter(img,str(chr(65+j)),Palet[self.c],3,(13,35),1)
+                    Text = str(chr(65+j))
+                    title = 'testing_{}_{}_{}_{}.png'.format(self.ShapeC, self.ids, Text, self.TextC)
+                    filename = directory + '/' + title
+                    cv2.imwrite(filename,img)
+                
+            if (not(self.c == 9)):
+                    self.c += 1
+                    self.genOctagonImages()
+
+
+    def genStarImages(self):
+            self.textCAssignment(self.c)
+            for i in range (0,10):
+                self.ShapeCAssign(i)
+                for j in range (0,26):
+                    img = np.zeros((50,50,3), np.uint8)
+                    drawStar(img,Palet[i])
+                    drawLetter(img,str(chr(65+j)),Palet[self.c],2,(15,35),.8)
+                    Text = str(chr(65+j))
+                    title = 'testing_{}_{}_{}_{}.png'.format(self.ShapeC, self.ids, Text, self.TextC)
+                    filename = directory + '/' + title
+                    cv2.imwrite(filename,img)
+                
+            if (not(self.c == 9)):
+                    self.c += 1
+                    self.genStarImages()
+
+
+    def genCrossImages(self):
+            self.textCAssignment(self.c)
+            for i in range (0,10):
+                self.ShapeCAssign(i)
+                for j in range (0,26):
+                    img = np.zeros((50,50,3), np.uint8)
+                    drawCross(img,Palet[i])
+                    drawLetter(img,str(chr(65+j)),Palet[self.c],3,(13,35),1)
+                    Text = str(chr(65+j))
+                    title = 'testing_{}_{}_{}_{}.png'.format(self.ShapeC, self.ids, Text, self.TextC)
+                    filename = directory + '/' + title
+                    cv2.imwrite(filename,img)
+                
+            if (not(self.c == 9)):
+                    self.c += 1
+                    self.genCrossImages()
+
 
         
