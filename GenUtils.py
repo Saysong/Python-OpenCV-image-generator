@@ -89,20 +89,20 @@ def drawRectangle(img, color, pt1 = None, pt2 = None, thic = -1):
     dir = random.randint(1,2)
     if pt1 == None and pt2 == None:
         if dir == 1:
-            pt1 = (7,12)
-            pt2 = (42,37)
+            pt1 = (4,8)
+            pt2 = (45,42)
         else:
-            pt1 = (12,7)
-            pt2 = (37,42)
+            pt1 = (8,4)
+            pt2 = (42,45)
     cv2.rectangle(img, pt1, pt2, color, thic)
 
 def drawTrapeziod(img, color):
-    pts = np.array([[4,40],[44,40],[34,8],[14,8]], np.int32)
+    pts = np.array([[0,40],[49,40],[40,8],[10,8]], np.int32)
     pts = pts.reshape((-1,1,2))
     cv2.fillPoly(img, [pts], color)
 
 def drawPentagon(img, color):
-    pts = np.array([[24,5],[40,20],[35,40],[14,40],[9,20]], np.int32)
+    pts = np.array([[24,4],[44,20],[40,44],[9,44],[4,20]], np.int32)
     pts = pts.reshape((-1,1,2))
     cv2.fillPoly(img,[pts], color)
 
@@ -172,28 +172,28 @@ class generation():
             self.genSquareImages()
         elif (num == 5):
             self.ids  = 'RECTANGLE'
-            #self.genRectangleImages()
+            self.genRectangleImages()
         elif (num == 6):
             self.ids  = 'TRAPEZOID'
-            #self.genTrapeziodImages()
+            self.genTrapeziodImages()
         elif (num == 7):
             self.ids  = 'PENTAGON'
-            #self.genPentagonImages()
+            self.genPentagonImages()
         elif (num == 8):
             self.ids  = 'HEXAGON'
-            #self.genHexagonImages()
+            self.genHexagonImages()
         elif (num == 9):
             self.ids  = 'HEPTAGON'
-            #self.genHeptagonImages()
+            self.genHeptagonImages()
         elif (num == 10):
             self.ids  = 'OCTAGON'
-            #self.genOctagonImages()
+            self.genOctagonImages()
         elif (num == 11):
             self.ids  = 'STAR'
-            #self.genStarImages()
+            self.genStarImages()
         elif (num == 12):
             self.ids  = 'CROSS'
-            #self.genCrossImages()
+            self.genCrossImages()
         
     def textCAssignment(self, count):
         if (count == 0):
@@ -334,7 +334,7 @@ class generation():
             for j in range (0,26):
                 img = np.zeros((50,50,3), np.uint8)
                 drawRectangle(img,Palet[i])
-                drawLetter(img,str(chr(65+j)),Palet[self.c],4,(11,38),1.3)
+                drawLetter(img,str(chr(65+j)),Palet[self.c],3,(12,37),1.2)
                 Text = str(chr(65+j))
                 title = 'testing_{}_{}_{}_{}.png'.format(self.ShapeC, self.ids, Text, self.TextC)
                 filename = directory + '/' + title
@@ -351,7 +351,7 @@ class generation():
                 for j in range (0,26):
                     img = np.zeros((50,50,3), np.uint8)
                     drawTrapeziod(img,Palet[i])
-                    drawLetter(img,str(chr(65+j)),Palet[self.c],4,(11,38),1.3)
+                    drawLetter(img,str(chr(65+j)),Palet[self.c],3,(12,35),1.1)
                     Text = str(chr(65+j))
                     title = 'testing_{}_{}_{}_{}.png'.format(self.ShapeC, self.ids, Text, self.TextC)
                     filename = directory + '/' + title
@@ -368,7 +368,7 @@ class generation():
                 for j in range (0,26):
                     img = np.zeros((50,50,3), np.uint8)
                     drawPentagon(img,Palet[i])
-                    drawLetter(img,str(chr(65+j)),Palet[self.c],4,(11,38),1.3)
+                    drawLetter(img,str(chr(65+j)),Palet[self.c],4,(11,39),1.2)
                     Text = str(chr(65+j))
                     title = 'testing_{}_{}_{}_{}.png'.format(self.ShapeC, self.ids, Text, self.TextC)
                     filename = directory + '/' + title
@@ -386,7 +386,7 @@ class generation():
                 for j in range (0,26):
                     img = np.zeros((50,50,3), np.uint8)
                     drawHexagon(img,Palet[i])
-                    drawLetter(img,str(chr(65+j)),Palet[self.c],4,(11,38),1.3)
+                    drawLetter(img,str(chr(65+j)),Palet[self.c],4,(10,38),1.3)
                     Text = str(chr(65+j))
                     title = 'testing_{}_{}_{}_{}.png'.format(self.ShapeC, self.ids, Text, self.TextC)
                     filename = directory + '/' + title
@@ -404,7 +404,7 @@ class generation():
                 for j in range (0,26):
                     img = np.zeros((50,50,3), np.uint8)
                     drawHeptagon(img,Palet[i])
-                    drawLetter(img,str(chr(65+j)),Palet[self.c],4,(11,38),1.3)
+                    drawLetter(img,str(chr(65+j)),Palet[self.c],3,(14,35),1)
                     Text = str(chr(65+j))
                     title = 'testing_{}_{}_{}_{}.png'.format(self.ShapeC, self.ids, Text, self.TextC)
                     filename = directory + '/' + title
