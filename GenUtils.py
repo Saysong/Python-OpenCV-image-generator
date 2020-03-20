@@ -2,10 +2,12 @@ import numpy as np
 import cv2.cv2 as cv2
 from matplotlib import pyplot as plt
 import random
+from pathlib import Path
+
 # Directory info
-directory = './TestShapes'
-title = 'testing.png'
-filename = directory + '/' + title
+#directory = './TestShapes'
+#title = 'testing.png'
+#filename = directory + '/' + title
 
 # Color values according to opencv
 WHITE = [255,255,255]
@@ -145,55 +147,76 @@ def setBackground (img):
 
 
 # Generation
-directory = './TestShapes'
+#p = Path('.')
 
 class Generation():
     
+    
     # Generate Images when Generation Class is called
     def __init__(self,num):
+        # Shape
         self.ids = ''
+        # Counter that shouldn't need to exist
         self.c = 0
+        # Text color
         self.TextC = ''
+        # Shape color
         self.ShapeC  = ''
+        # Text
         self.Text = ''
+        # Directory
+        self.dir = ''
         if (num == 0):
             self.ids  = 'CIRCLE'
+            Path('./' + self.ids).mkdir()
             self.genCircleImages()
         elif (num == 1):
             self.ids  = 'SEMICIRCLE'
+            Path('./' + self.ids).mkdir()
             self.genSemiCircleImages()
         elif (num == 2):
             self.ids  = 'QUARTERCIRCLE'
+            Path('./' + self.ids).mkdir()
             self.genQuarterCircleImages()
         elif (num == 3):
             self.ids  = 'TRIANGLE'
+            Path('./' + self.ids).mkdir()
             self.genTriangleImages()
         elif (num == 4):
             self.ids  = 'SQUARE'
+            Path('./' + self.ids).mkdir()
             self.genSquareImages()
         elif (num == 5):
             self.ids  = 'RECTANGLE'
+            Path('./' + self.ids).mkdir()
             self.genRectangleImages()
         elif (num == 6):
             self.ids  = 'TRAPEZOID'
+            Path('./' + self.ids).mkdir()
             self.genTrapeziodImages()
         elif (num == 7):
             self.ids  = 'PENTAGON'
+            Path('./' + self.ids).mkdir()
             self.genPentagonImages()
         elif (num == 8):
             self.ids  = 'HEXAGON'
+            Path('./' + self.ids).mkdir()
             self.genHexagonImages()
         elif (num == 9):
             self.ids  = 'HEPTAGON'
+            Path('./' + self.ids).mkdir()
             self.genHeptagonImages()
         elif (num == 10):
             self.ids  = 'OCTAGON'
+            Path('./' + self.ids).mkdir()
             self.genOctagonImages()
         elif (num == 11):
             self.ids  = 'STAR'
+            Path('./' + self.ids).mkdir()
             self.genStarImages()
         elif (num == 12):
             self.ids  = 'CROSS'
+            Path('./' + self.ids).mkdir()
             self.genCrossImages()
         
     # Assigns Text color file name
@@ -266,8 +289,8 @@ class Generation():
                 drawCircle(img,Palet[i])
                 drawLetter(img,str(chr(65+j)),Palet[self.c])
                 Text = str(chr(65+j))
-                title = 'testing_{}_{}_{}_{}.png'.format(self.ShapeC, self.ids, Text, self.TextC)
-                filename = directory + '/' + title
+                title = '{}_{}_{}_{}.png'.format(self.TextC, Text, self.ShapeC, self.ids)
+                filename = self.ids + '/' + title
                 cv2.imwrite(filename,img)
                 
         if (not(self.c == 9)):
@@ -284,8 +307,8 @@ class Generation():
                 drawSemiCircle(img,Palet[i])
                 drawLetter(img,str(chr(65+j)),Palet[self.c],3,(16,33),0.8)
                 Text = str(chr(65+j))
-                title = 'testing_{}_{}_{}_{}.png'.format(self.ShapeC, self.ids, Text, self.TextC)
-                filename = directory + '/' + title
+                title = '{}_{}_{}_{}.png'.format(self.TextC, Text, self.ShapeC, self.ids)
+                filename = self.ids + '/' + title
                 cv2.imwrite(filename,img)
                 
         if (not(self.c == 9)):
@@ -302,8 +325,8 @@ class Generation():
                 drawQuarterCircle(img,Palet[i])
                 drawLetter(img,str(chr(65+j)),Palet[self.c],3,(13,35),0.9)
                 Text = str(chr(65+j))
-                title = 'testing_{}_{}_{}_{}.png'.format(self.ShapeC, self.ids, Text, self.TextC)
-                filename = directory + '/' + title
+                title = '{}_{}_{}_{}.png'.format(self.TextC, Text, self.ShapeC, self.ids)
+                filename = self.ids + '/' + title
                 cv2.imwrite(filename,img)
                 
         if (not(self.c == 9)):
@@ -320,8 +343,8 @@ class Generation():
                 drawTriangle(img,Palet[i])
                 drawLetter(img,str(chr(65+j)),Palet[self.c],2,(17,37),0.7)
                 Text = str(chr(65+j))
-                title = 'testing_{}_{}_{}_{}.png'.format(self.ShapeC, self.ids, Text, self.TextC)
-                filename = directory + '/' + title
+                title = '{}_{}_{}_{}.png'.format(self.TextC, Text, self.ShapeC, self.ids)
+                filename = self.ids + '/' + title
                 cv2.imwrite(filename,img)
                 
         if (not(self.c == 9)):
@@ -337,8 +360,8 @@ class Generation():
                 drawSquare(img,Palet[i])
                 drawLetter(img,str(chr(65+j)),Palet[self.c],4,(11,38),1.3)
                 Text = str(chr(65+j))
-                title = 'testing_{}_{}_{}_{}.png'.format(self.ShapeC, self.ids, Text, self.TextC)
-                filename = directory + '/' + title
+                title = '{}_{}_{}_{}.png'.format(self.TextC, Text, self.ShapeC, self.ids)
+                filename = self.ids + '/' + title
                 cv2.imwrite(filename,img)
                 
         if (not(self.c == 9)):
@@ -354,8 +377,8 @@ class Generation():
                 drawRectangle(img,Palet[i])
                 drawLetter(img,str(chr(65+j)),Palet[self.c],3,(12,37),1.2)
                 Text = str(chr(65+j))
-                title = 'testing_{}_{}_{}_{}.png'.format(self.ShapeC, self.ids, Text, self.TextC)
-                filename = directory + '/' + title
+                title = '{}_{}_{}_{}.png'.format(self.TextC, Text, self.ShapeC, self.ids)
+                filename = self.ids + '/' + title
                 cv2.imwrite(filename,img)
                 
         if (not(self.c == 9)):
@@ -371,8 +394,8 @@ class Generation():
                     drawTrapeziod(img,Palet[i])
                     drawLetter(img,str(chr(65+j)),Palet[self.c],3,(12,35),1.1)
                     Text = str(chr(65+j))
-                    title = 'testing_{}_{}_{}_{}.png'.format(self.ShapeC, self.ids, Text, self.TextC)
-                    filename = directory + '/' + title
+                    title = '{}_{}_{}_{}.png'.format(self.TextC, Text, self.ShapeC, self.ids)
+                    filename = self.ids + '/' + title
                     cv2.imwrite(filename,img)
                 
             if (not(self.c == 9)):
@@ -388,8 +411,8 @@ class Generation():
                     drawPentagon(img,Palet[i])
                     drawLetter(img,str(chr(65+j)),Palet[self.c],4,(11,39),1.2)
                     Text = str(chr(65+j))
-                    title = 'testing_{}_{}_{}_{}.png'.format(self.ShapeC, self.ids, Text, self.TextC)
-                    filename = directory + '/' + title
+                    title = '{}_{}_{}_{}.png'.format(self.TextC, Text, self.ShapeC, self.ids)
+                    filename = self.ids + '/' + title
                     cv2.imwrite(filename,img)
                 
             if (not(self.c == 9)):
@@ -406,8 +429,8 @@ class Generation():
                     drawHexagon(img,Palet[i])
                     drawLetter(img,str(chr(65+j)),Palet[self.c],4,(10,38),1.3)
                     Text = str(chr(65+j))
-                    title = 'testing_{}_{}_{}_{}.png'.format(self.ShapeC, self.ids, Text, self.TextC)
-                    filename = directory + '/' + title
+                    title = '{}_{}_{}_{}.png'.format(self.TextC, Text, self.ShapeC, self.ids)
+                    filename = self.ids + '/' + title
                     cv2.imwrite(filename,img)
                 
             if (not(self.c == 9)):
@@ -424,8 +447,8 @@ class Generation():
                     drawHeptagon(img,Palet[i])
                     drawLetter(img,str(chr(65+j)),Palet[self.c],3,(14,35),1)
                     Text = str(chr(65+j))
-                    title = 'testing_{}_{}_{}_{}.png'.format(self.ShapeC, self.ids, Text, self.TextC)
-                    filename = directory + '/' + title
+                    title = '{}_{}_{}_{}.png'.format(self.TextC, Text, self.ShapeC, self.ids)
+                    filename = self.ids + '/' + title
                     cv2.imwrite(filename,img)
                 
             if (not(self.c == 9)):
@@ -442,8 +465,8 @@ class Generation():
                     drawOctagon(img,Palet[i])
                     drawLetter(img,str(chr(65+j)),Palet[self.c],3,(13,35),1)
                     Text = str(chr(65+j))
-                    title = 'testing_{}_{}_{}_{}.png'.format(self.ShapeC, self.ids, Text, self.TextC)
-                    filename = directory + '/' + title
+                    title = '{}_{}_{}_{}.png'.format(self.TextC, Text, self.ShapeC, self.ids)
+                    filename = self.ids + '/' + title
                     cv2.imwrite(filename,img)
                 
             if (not(self.c == 9)):
@@ -460,8 +483,8 @@ class Generation():
                     drawStar(img,Palet[i])
                     drawLetter(img,str(chr(65+j)),Palet[self.c],2,(15,35),.8)
                     Text = str(chr(65+j))
-                    title = 'testing_{}_{}_{}_{}.png'.format(self.ShapeC, self.ids, Text, self.TextC)
-                    filename = directory + '/' + title
+                    title = '{}_{}_{}_{}.png'.format(self.TextC, Text, self.ShapeC, self.ids)
+                    filename = self.ids + '/' + title
                     cv2.imwrite(filename,img)
                 
             if (not(self.c == 9)):
@@ -478,8 +501,8 @@ class Generation():
                     drawCross(img,Palet[i])
                     drawLetter(img,str(chr(65+j)),Palet[self.c],3,(13,35),1)
                     Text = str(chr(65+j))
-                    title = 'testing_{}_{}_{}_{}.png'.format(self.ShapeC, self.ids, Text, self.TextC)
-                    filename = directory + '/' + title
+                    title = '{}_{}_{}_{}.png'.format(self.TextC, Text, self.ShapeC, self.ids)
+                    filename = self.ids + '/' + title
                     cv2.imwrite(filename,img)
                 
             if (not(self.c == 9)):
