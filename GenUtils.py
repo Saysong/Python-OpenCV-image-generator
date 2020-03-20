@@ -147,8 +147,9 @@ def setBackground (img):
 # Generation
 directory = './TestShapes'
 
-class generation():
+class Generation():
     
+    # Generate Images when Generation Class is called
     def __init__(self,num):
         self.ids = ''
         self.c = 0
@@ -195,6 +196,7 @@ class generation():
             self.ids  = 'CROSS'
             self.genCrossImages()
         
+    # Assigns Text color file name
     def textCAssignment(self, count):
         if (count == 0):
             self.TextC  = 'WHITE'
@@ -217,6 +219,8 @@ class generation():
         elif (count  == 9):
             self.TextC  = 'ORANGE'
 
+
+    # Assigns Shape color file name
     def ShapeCAssign(self, i):
         if (i == 0):
             self.ShapeC  = 'WHITE'
@@ -239,12 +243,26 @@ class generation():
         elif (i == 9):
             self.ShapeC  = 'ORANGE'
     
+    # Creates a background from a random section of the 5 images
+    def setBackground(self):
+        # Determines from which file to crop
+        randfile = random.randint(1,5)
+        xposit = random.randint(0,949)
+        yposit = random.randint(0,449)
+        img = cv2.imread('FieldImages/1000img' + str(randfile) +'.png')
+        img = img[yposit:yposit+50, xposit:xposit+50]
+        return img
+
+
+    # Below are the Shape and letter generation.
+    # Should shorted these methods soon
+
     def genCircleImages(self):
         self.textCAssignment(self.c)
         for i in range (0,10):
             self.ShapeCAssign(i)
             for j in range (0,26):
-                img = np.zeros((50,50,3), np.uint8)
+                img = self.setBackground()
                 drawCircle(img,Palet[i])
                 drawLetter(img,str(chr(65+j)),Palet[self.c])
                 Text = str(chr(65+j))
@@ -262,7 +280,7 @@ class generation():
         for i in range (0,10):
             self.ShapeCAssign(i)
             for j in range (0,26):
-                img = np.zeros((50,50,3), np.uint8)
+                img = self.setBackground()
                 drawSemiCircle(img,Palet[i])
                 drawLetter(img,str(chr(65+j)),Palet[self.c],3,(16,33),0.8)
                 Text = str(chr(65+j))
@@ -280,7 +298,7 @@ class generation():
         for i in range (0,10):
             self.ShapeCAssign(i)
             for j in range (0,26):
-                img = np.zeros((50,50,3), np.uint8)
+                img = self.setBackground()
                 drawQuarterCircle(img,Palet[i])
                 drawLetter(img,str(chr(65+j)),Palet[self.c],3,(13,35),0.9)
                 Text = str(chr(65+j))
@@ -298,7 +316,7 @@ class generation():
         for i in range (0,10):
             self.ShapeCAssign(i)
             for j in range (0,26):
-                img = np.zeros((50,50,3), np.uint8)
+                img = self.setBackground()
                 drawTriangle(img,Palet[i])
                 drawLetter(img,str(chr(65+j)),Palet[self.c],2,(17,37),0.7)
                 Text = str(chr(65+j))
@@ -315,7 +333,7 @@ class generation():
         for i in range (0,10):
             self.ShapeCAssign(i)
             for j in range (0,26):
-                img = np.zeros((50,50,3), np.uint8)
+                img = self.setBackground()
                 drawSquare(img,Palet[i])
                 drawLetter(img,str(chr(65+j)),Palet[self.c],4,(11,38),1.3)
                 Text = str(chr(65+j))
@@ -332,7 +350,7 @@ class generation():
         for i in range (0,10):
             self.ShapeCAssign(i)
             for j in range (0,26):
-                img = np.zeros((50,50,3), np.uint8)
+                img = self.setBackground()
                 drawRectangle(img,Palet[i])
                 drawLetter(img,str(chr(65+j)),Palet[self.c],3,(12,37),1.2)
                 Text = str(chr(65+j))
@@ -349,7 +367,7 @@ class generation():
             for i in range (0,10):
                 self.ShapeCAssign(i)
                 for j in range (0,26):
-                    img = np.zeros((50,50,3), np.uint8)
+                    img = self.setBackground()
                     drawTrapeziod(img,Palet[i])
                     drawLetter(img,str(chr(65+j)),Palet[self.c],3,(12,35),1.1)
                     Text = str(chr(65+j))
@@ -366,7 +384,7 @@ class generation():
             for i in range (0,10):
                 self.ShapeCAssign(i)
                 for j in range (0,26):
-                    img = np.zeros((50,50,3), np.uint8)
+                    img = self.setBackground()
                     drawPentagon(img,Palet[i])
                     drawLetter(img,str(chr(65+j)),Palet[self.c],4,(11,39),1.2)
                     Text = str(chr(65+j))
@@ -384,7 +402,7 @@ class generation():
             for i in range (0,10):
                 self.ShapeCAssign(i)
                 for j in range (0,26):
-                    img = np.zeros((50,50,3), np.uint8)
+                    img = self.setBackground()
                     drawHexagon(img,Palet[i])
                     drawLetter(img,str(chr(65+j)),Palet[self.c],4,(10,38),1.3)
                     Text = str(chr(65+j))
@@ -402,7 +420,7 @@ class generation():
             for i in range (0,10):
                 self.ShapeCAssign(i)
                 for j in range (0,26):
-                    img = np.zeros((50,50,3), np.uint8)
+                    img = self.setBackground()
                     drawHeptagon(img,Palet[i])
                     drawLetter(img,str(chr(65+j)),Palet[self.c],3,(14,35),1)
                     Text = str(chr(65+j))
@@ -420,7 +438,7 @@ class generation():
             for i in range (0,10):
                 self.ShapeCAssign(i)
                 for j in range (0,26):
-                    img = np.zeros((50,50,3), np.uint8)
+                    img = self.setBackground()
                     drawOctagon(img,Palet[i])
                     drawLetter(img,str(chr(65+j)),Palet[self.c],3,(13,35),1)
                     Text = str(chr(65+j))
@@ -438,7 +456,7 @@ class generation():
             for i in range (0,10):
                 self.ShapeCAssign(i)
                 for j in range (0,26):
-                    img = np.zeros((50,50,3), np.uint8)
+                    img = self.setBackground()
                     drawStar(img,Palet[i])
                     drawLetter(img,str(chr(65+j)),Palet[self.c],2,(15,35),.8)
                     Text = str(chr(65+j))
@@ -456,7 +474,7 @@ class generation():
             for i in range (0,10):
                 self.ShapeCAssign(i)
                 for j in range (0,26):
-                    img = np.zeros((50,50,3), np.uint8)
+                    img = self.setBackground()
                     drawCross(img,Palet[i])
                     drawLetter(img,str(chr(65+j)),Palet[self.c],3,(13,35),1)
                     Text = str(chr(65+j))
