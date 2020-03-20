@@ -5,5 +5,5 @@ from matplotlib import pyplot as plt
 import GenUtils as gen
 from GenUtils import generation 
 Rex = []
-for i in range (12):
+for i in range (13):
     Rex.append(generation(i))
